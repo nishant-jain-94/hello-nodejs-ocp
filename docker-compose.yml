@@ -1,6 +1,6 @@
 version: "3"
 services:
   sf-hello-world:
-    build: .
+    image: docker.io/jainnish94/sf-hello-world
     ports:
       - "8080:8080"
