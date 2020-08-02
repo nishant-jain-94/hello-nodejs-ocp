@@ -21,5 +21,4 @@ spec:
     - type: ConfigChange
     - type: GitHub
       github:
-        secretReference:
-          name: githubsecret
+        secret: supersecret
