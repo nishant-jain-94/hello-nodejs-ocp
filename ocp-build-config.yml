@@ -1,0 +1,25 @@
+kind: Secret
+apiVersion: v1
+metadata: 
+  name: github-secret
+data:
+  WebHookSecretKey: cXdlcnR5QDEyMwo=
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: hello-ocp-build
+spec:
+  source:
+    git:
+      ref: master
+      uri: 'https://github.com/nishant-jain-94/hello-nodejs-ocp'
+    type: Git
+  strategy:
+    type: Docker
+  triggers:
+    - type: ConfigChange
+    - type: GitHub
+      github:
+        secretReference:
+          name: githubsecret
