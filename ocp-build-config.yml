@@ -3,7 +3,7 @@ apiVersion: v1
 metadata: 
   name: githubsecret
 data:
-  WebHookSecretKey: cXdlcnR5QDEyMwo=
+  WebHookSecretKey: c3VwZXJzZWNyZXQK
 ---
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
