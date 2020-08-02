@@ -1,7 +1,7 @@
 kind: Secret
 apiVersion: v1
 metadata: 
-  name: github-secret
+  name: githubsecret
 data:
   WebHookSecretKey: cXdlcnR5QDEyMwo=
 ---
