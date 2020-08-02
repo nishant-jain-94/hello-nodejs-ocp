@@ -17,8 +17,38 @@ spec:
     type: Git
   strategy:
     type: Docker
+  output:
+    to: 
+      kind: ImageStreamTag
+      name: hello-ocp-build:v0.0.1
   triggers:
     - type: ConfigChange
     - type: GitHub
       github:
         secret: supersecret
+# ---
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: hello-ocp-service
+#   annotations:
+#     description: Exposes and load balances the application pods
+#     service.alpha.openshift.io/dependencies: '[{"name": "${DATABASE_SERVICE_NAME}",
+#       "kind": "Service"}]'
+# spec:
+#   ports:
+#   - name: web
+#     port: 8080
+#     targetPort: 8080
+#   selector:
+#     name: hello-world-ocp
+# ---
+# kind: Route
+# apiVersion: v1
+# metadata:
+#   name: hello-ocp-route
+# spec:
+#   host: hello-ocp
+#   to:
+#     kind: Service
+#     name: hello-ocp-service
