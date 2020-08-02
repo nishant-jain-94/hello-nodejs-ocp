@@ -20,12 +20,17 @@ spec:
   output:
     to: 
       kind: ImageStreamTag
-      name: hello-ocp-build:v0.0.1
+      name: hello-ocp:v0.0.1
   triggers:
     - type: ConfigChange
     - type: GitHub
       github:
         secret: supersecret
+---
+apiVersion: v1
+kind: ImageStream
+metadata:
+  name: hello-ocp
 # ---
 # kind: Service
 # apiVersion: v1
